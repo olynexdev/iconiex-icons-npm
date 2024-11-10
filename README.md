@@ -41,15 +41,15 @@ yarn add react-iconiex-icons
 
 ### Simple usages example
 
-```react
+```js
 import { IxArrowRigth } from "react-iconiex-icons";
 
 function App() {
-	return (
-		<div className="App">
-			<IxArrowRigth />
-		</div>
-	);
+  return (
+    <div className="App">
+      <IxArrowRigth />
+    </div>
+  );
 }
 
 export default App;
@@ -57,15 +57,15 @@ export default App;
 
 ### Using className for dynamic style for tailwindcss & bootstrap
 
-```react
+```js
 import { IxArrowRigth } from "react-iconiex-icons";
 
 function App() {
-	return (
-		<div className="App">
-			<IxArrowRigth className="text-red-500 text-4xl" />
-		</div>
-	);
+  return (
+    <div className="App">
+      <IxArrowRigth className="text-red-500 text-4xl" />
+    </div>
+  );
 }
 
 export default App;
@@ -73,7 +73,7 @@ export default App;
 
 ### Using inline style style
 
-```react
+```js
 import { IxArrowRigth } from "react-iconiex-icons";
 
 function App() {
@@ -89,10 +89,8 @@ export default App;
 
 ### Change style with custom class name
 
-```react
-
+```js
 <IxArrowRigth className="my-icon" />
-
 ```
 
 ```css

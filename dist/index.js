@@ -1,8 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IxBox = void 0;
-var IxBox_1 = require("./icons/IxBox");
-Object.defineProperty(exports, "IxBox", { enumerable: true, get: function () { return __importDefault(IxBox_1).default; } });
+exports.IxMountain = exports.IxDdddd = exports.IxGu = exports.IxBox = void 0;
+var icons_1 = require("./icons/icons");
+Object.defineProperty(exports, "IxBox", { enumerable: true, get: function () { return icons_1.IxBox; } });
+var icons_2 = require("./icons/icons");
+Object.defineProperty(exports, "IxGu", { enumerable: true, get: function () { return icons_2.IxGu; } });
+var icons_3 = require("./icons/icons");
+Object.defineProperty(exports, "IxDdddd", { enumerable: true, get: function () { return icons_3.IxDdddd; } });
+var icons_4 = require("./icons/icons");
+Object.defineProperty(exports, "IxMountain", { enumerable: true, get: function () { return icons_4.IxMountain; } });

@@ -1,1 +1,1 @@
-export { default as IxBox } from './icons/IxBox';
+export { IxDdddd } from './icons/icons';
