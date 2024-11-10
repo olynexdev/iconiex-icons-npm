@@ -17,13 +17,13 @@ You can easily install Iconiex using either **npm** or **yarn**. Run one of the 
 ### Using npm:
 
 ```bash
-npm install iconiex-icons
+npm install react-iconiex-icons
 ```
 
 ### Using yarn:
 
 ```bash
-yarn add iconiex-icons
+yarn add react-iconiex-icons
 ```
 
 ## Overview
@@ -42,7 +42,7 @@ yarn add iconiex-icons
 ### Simple usages example
 
 ```react
-import { IxArrowRigth } from "iconiex-icons";
+import { IxArrowRigth } from "react-iconiex-icons";
 
 function App() {
 	return (
@@ -58,7 +58,7 @@ export default App;
 ### Using className for dynamic style for tailwindcss & bootstrap
 
 ```react
-import { IxArrowRigth } from "iconiex-icons";
+import { IxArrowRigth } from "react-iconiex-icons";
 
 function App() {
 	return (
@@ -74,7 +74,7 @@ export default App;
 ### Using inline style style
 
 ```react
-import { IxArrowRigth } from "iconiex-icons";
+import { IxArrowRigth } from "react-iconiex-icons";
 
 function App() {
 	return (
