@@ -78,9 +78,9 @@ import { IxArrowRigth } from "react-iconiex-icons";
 
 function App() {
 	return (
-		<div className="App">
-			<IxArrowRigth style={{color:"red", font-size:"32px"}} />
-		</div>
+	<div className="App">
+	<IxArrowRigth style={{color:"red", font-size:"32px"}} />
+	</div>
 	);
 }
 
