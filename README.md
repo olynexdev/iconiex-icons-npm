@@ -71,7 +71,7 @@ function App() {
 export default App;
 ```
 
-### Using inline style style
+### Using inline style
 
 ```js
 import { IxArrowRigth } from "react-iconiex-icons";

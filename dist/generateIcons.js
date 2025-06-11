@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-const helpers_1 = require("./utils/helpers");
 const dotenv_1 = __importDefault(require("dotenv"));
 // Load environment variables from .env file
 dotenv_1.default.config();
@@ -25,26 +24,27 @@ if (!serverUrl) {
 const iconDir = path_1.default.join(__dirname, "icons");
 const iconsFilePath = path_1.default.join(iconDir, "icons.tsx");
 const indexFilePath = path_1.default.join(__dirname, "index.ts");
-// Ensure the icons directory exists
+// Ensure the icons directory exists, or create it
 if (!fs_1.default.existsSync(iconDir)) {
-    fs_1.default.mkdirSync(iconDir);
+    fs_1.default.mkdirSync(iconDir, { recursive: true });
 }
 // Clear the index.ts file before writing new imports
 fs_1.default.writeFileSync(indexFilePath, "");
 // Function to create a single export line for an icon
-function generateExportLine(title) {
-    const componentName = `Ix${(0, helpers_1.toCamelCase)(title)}`;
+function generateExportLine(tagname) {
+    const componentName = `Ix${tagname}`;
     return `export { ${componentName} } from './icons/icons';\n`;
 }
 // Function to create the icon module (one module for all icons) using named exports
+// Function to create the icon module (one module for all icons) using named exports
 function generateIconModule(icons) {
-    let moduleContent = `import React from 'react';\nimport { IconProps } from '../types';\n\n`;
+    let moduleContent = `import { IconProps } from '../types';\n\n`;
     // Generate the icon components with named exports
     moduleContent += icons
-        .map(({ title, icon }) => {
-        const componentName = `Ix${(0, helpers_1.toCamelCase)(title)}`;
+        .map(({ tagname, icon }) => {
+        const componentName = `Ix${tagname}`; // Ensure no extra period here
         const updatedSvgMarkup = icon.replace(/<svg([^>]*)/, `<svg className={className} style={style} $1`);
-        return `export const ${componentName}: React.FC<IconProps> = ({ className = '', style = {}, ...props }) => (\n  ${updatedSvgMarkup}\n);\n`;
+        return `export const ${componentName} = ({ className = '', style = {}, ...props }: IconProps) => (\n  ${updatedSvgMarkup}\n);\n`; // No period here
     })
         .join("\n");
     return moduleContent;
@@ -59,13 +59,16 @@ function generateIcons() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const data = yield response.json();
-            const icons = data;
+            if (data.length === 0) {
+                console.warn("No icons found from the server.");
+                return;
+            }
             // Generate content for icons.tsx file (icon components with named exports)
-            const iconModuleContent = generateIconModule(icons);
+            const iconModuleContent = generateIconModule(data);
             fs_1.default.writeFileSync(iconsFilePath, iconModuleContent);
             // Generate export lines for each icon, pointing to icons.tsx, and write to index.ts
-            const exportLines = icons
-                .map(({ title }) => generateExportLine(title))
+            const exportLines = data
+                .map(({ tagname }) => generateExportLine(tagname))
                 .join("");
             fs_1.default.writeFileSync(indexFilePath, exportLines);
             console.log("Icons generated and index.ts updated successfully.");
