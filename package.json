@@ -1,6 +1,6 @@
 {
   "name": "react-iconiex-icons",
-  "version": "1.2.3",
+  "version": "1.2.6",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,16 +21,16 @@
   ],
   "scripts": {
     "build": "tsc",
-    "generate": "ts-node src/generate.ts",
+    "generate": "ts-node src/commands/generateIcons.ts",
     "clean": "rimraf dist"
   },
   "files": [
-    "dist",
     "src/index.ts"
   ],
   "dependencies": {
     "@types/react-dom": "^19.0.4",
     "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
     "react": "^18.3.1"
   },
   "devDependencies": {
