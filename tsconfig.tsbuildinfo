@@ -1,10 +1,6 @@
 {
   "root": [
-    "./src/generate.ts",
-    "./src/index.ts",
-    "./src/types.ts",
-    "./src/icons/icons.tsx",
-    "./src/utils/helpers.ts"
+    "./src/index.ts"
   ],
   "version": "5.7.2"
 }
