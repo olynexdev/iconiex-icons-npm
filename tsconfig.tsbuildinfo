@@ -1,6 +1,6 @@
 {
   "root": [
-    "./src/generateicons.ts",
+    "./src/generate.ts",
     "./src/index.ts",
     "./src/types.ts",
     "./src/icons/icons.tsx",
